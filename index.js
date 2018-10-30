@@ -252,7 +252,7 @@ bot.on("message", function(message) {
             return;
             break;
             //if the user can
-            if (message.member.hasPermission("BAN_MEMBERS")) {
+            if (message.member.hasPermission("DELETE_MESSAGES")) {
            
                 var mc = message.content.split(" ")[1];
                 message.channel.bulkDelete(mc);
