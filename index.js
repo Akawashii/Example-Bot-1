@@ -4,27 +4,6 @@
 const Discord = require("discord.js"); //No need to explain.We just require discord.js.
 const PREFIX = "/"
 const YTDL = require("ytdl-core");
-const BotOwner = "442793696497369089"
-
-function play(connection, message) {
-    var server = servers[message.guild.id];
-
-    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter : "audioonly"}));
-
-    server.queue.shift();
-
-    server.dispatcher.on("end", function() {
-        if(server.queue[0]) play(connection, message);
-        else connection.disconnect();
-    });
-}
-
-var hug = [
-    "",
-    "",
-    "",
-
-];
 var fortunes = [
     "Yeah.I think.",
     "No.I don't think so.",
@@ -59,17 +38,8 @@ bot.on("message", function(message) {
         break;
         case "test" :
             message.channel.sendmessage("Only working for Akawashii.")
-            break; 
-            //Info?
-            case "invite" :
-            message.channel.send("Put some chill vibes in your server.")
-            case "userinfo" :
-
-            //Music
-        case "play" :
-            message.channel.sendMessage("Can't play music.")
-        case "stop":
-        message.channel.sendMessage("Can't play music.")
+            break;
+ 
 
 
         //Mod commands
@@ -326,17 +296,12 @@ bot.on("message", function(message) {
         case "marry" :
         message.channel.sendMessage("Chill.I can't marry you now.");
         break;
-        case "invite" : 
-        case "emotelist" :
-        var server = servers[message.guild.id];
-        message.channel.sendMessage("There is a list of the emotes for this server.Enjoy.");
-        message.channel.sendMessage(server.emojis);
-        break;
+       
         //audit log
         case "auditlog" :
-        message.channel.sendMessage("-Upgraded the ``info`` and the ``help`` command. ")
-        message.channel.sendMessage("-Added ``mute``,``ban`` ``purge`` and ``kick`` command.Bugs fixed.")
-        message.channel.sendMessage("Bot **renamed** ! After many doubts and reflection,**ChillBot** is born.")
+	message.channel.sendMessage("After all of that,**ChillBot** is now **Hoisted** on Heroku,so he's gonna be online 24/7! Let's do a party for that.With the Wumpus.And some Chill music.")
+	message.channel.sendMessage("Ban,Mute,Unmute and kick are updated.")
+	message.channel.sendMessage("You can now get some avatars with /avatar.")
         break;
 
         //default
